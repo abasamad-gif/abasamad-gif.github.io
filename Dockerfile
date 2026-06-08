@@ -27,12 +27,14 @@ WORKDIR /var/www
 # Copy existing application directory contents
 COPY . /var/www
 
-# Run composer and print the output log if it fails
-RUN composer install --no-interaction --no-plugins --no-scripts --no-dev --optimize-autoloader --ignore-platform-reqs -vvv || return 0
+# Run composer and bypass errors gracefully during build
+RUN composer install --no-interaction --no-plugins --no-scripts --no-dev --optimize-autoloader --ignore-platform-reqs || return 0
 
-# Configure Nginx
+# Configure Nginx - Force link to sites-enabled and remove default configs
 COPY ./nginx.conf /etc/nginx/sites-available/default
+RUN rm -f /etc/nginx/sites-enabled/default \
+    && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Expose port and start openserver
 EXPOSE 80
-CMD service nginx start && php-fpm
+CMD php artisan migrate --force && service nginx start && php-fpm
