@@ -37,4 +37,4 @@ RUN rm -f /etc/nginx/sites-enabled/default \
 
 # Expose port and start openserver
 EXPOSE 80
-CMD php artisan migrate --force && service nginx start && php-fpm
+CMD php /var/www/artisan migrate --force && service nginx start && php-fpm
