@@ -27,6 +27,9 @@ WORKDIR /var/www
 # Copy existing application directory contents
 COPY . /var/www
 
+# Force full permissions across the project files for Linux execution
+RUN chmod -R 755 /var/www
+
 # Run composer and bypass errors gracefully during build
 RUN composer install --no-interaction --no-plugins --no-scripts --no-dev --optimize-autoloader --ignore-platform-reqs || return 0
 
