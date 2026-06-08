@@ -28,7 +28,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 # Install dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 
 # Configure Nginx
 COPY ./nginx.conf /etc/nginx/sites-available/default
