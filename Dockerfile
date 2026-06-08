@@ -27,8 +27,8 @@ WORKDIR /var/www
 # Copy existing application directory contents
 COPY . /var/www
 
-# Install dependencies
-RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
+# Install dependencies with strict fallback flags
+RUN composer install --no-interaction --no-plugins --no-scripts --no-dev --optimize-autoloader --ignore-platform-reqs
 
 # Configure Nginx
 COPY ./nginx.conf /etc/nginx/sites-available/default
