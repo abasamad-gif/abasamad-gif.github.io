@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew &amp; Blossom | Premium Coffee &amp; Florals</title>
+    
+    <link href="admin_files/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="admin_files/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-green: #1c3c2d;
+            --accent-yellow: #ffc107;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fcfcfc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Extra Large Dark Green Header */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--primary-green) !important;
+            padding-top: 1.2rem !important;
+            padding-bottom: 1.2rem !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Brand Container (Logo + Text) */
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
+            margin-right: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            opacity: 0.9;
+        }
+
+        .brand-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        /* Extra Large Header Logo */
+        .header-logo {
+            height: 100px; /* Your requested size */
+            width: auto;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        /* Navigation Icons */
+        .nav-link i {
+            font-size: 2rem !important;
+            color: var(--white) !important;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover i {
+            color: var(--accent-yellow) !important;
+            transform: translateY(-3px);
+        }
+
+        /* Cart Badge */
+        .badge-cart {
+            background-color: var(--accent-yellow);
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border: 2px solid var(--primary-green);
+        }
+
+        /* Main Content Spacing */
+        main {
+            min-height: 85vh;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            color: var(--primary-green);
+            border-top: 1px solid #eee;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-green);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            
+            <a class="navbar-brand" href="http://127.0.0.1:8000/home">
+                <img src="admin_files/bnb.png" alt="BNB Logo" class="header-logo">
+                <div class="brand-text d-none d-sm-block">
+                    Brew <span style="font-weight: 300; opacity: 0.9;">&amp;</span> Blossom
+                </div>
+            </a>
+
+            <div class="ms-auto d-flex align-items-center">
+                <ul class="navbar-nav flex-row gap-4">
+                    <li class="nav-item">
+                        <a class="nav-link p-0" href="http://127.0.0.1:8000/shop" title="Go to Shop">
+                            <i class="bi bi-grid-3x3-gap"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link p-0 position-relative" href="http://127.0.0.1:8000/cart" title="View Cart">
+                            <i class="bi bi-bag-heart"></i>
+                                                    </a>
+                    </li>
+                                            <li class="nav-item">
+                            <a class="nav-link p-0" href="http://127.0.0.1:8000/logout" title="Logout">
+                                <i class="bi bi-person-x"></i>
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <main>
+        <div class="container py-5">
+    <div class="p-5 rounded-4 shadow-sm text-white mb-5" style="background: linear-gradient(45deg, #1c3c2d, #2d5a44);">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="fw-bold">Management Dashboard</h1>
+                <p class="lead opacity-75 mb-0">Welcome back, abas! Manage your Brew &amp; Blossom inventory here.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="http://127.0.0.1:8000/admin/purchases" class="btn btn-warning fw-bold rounded-pill px-4">
+                    <i class="bi bi-cart-check-fill me-2"></i>View Orders
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm p-4" style="border-radius: 20px;">
+                <h4 class="fw-bold mb-4" style="color: #1c3c2d;">Add New Item</h4>
+                
+                <form action="http://127.0.0.1:8000/admin/products/add" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Product Name</label>
+                        <input type="text" name="name" class="form-control bg-light border-0" placeholder="e.g. Arabica Roast" required="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Category</label>
+                        <select name="category" class="form-select bg-light border-0" required="">
+                            <option value="coffee" selected="selected">Coffee</option>
+                            <option value="flowers">Flowers</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Price ($)</label>
+                        <input type="number" step="0.01" name="price" class="form-control bg-light border-0" placeholder="0.00" required="">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Description</label>
+                        <textarea name="description" class="form-control bg-light border-0" rows="3" placeholder="Describe the item..."></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Product Image</label>
+                        <input type="file" name="image" class="form-control bg-light border-0" required="">
+                    </div>
+
+                    <button type="submit" class="btn w-100 fw-bold py-2 text-white" style="background-color: #1c3c2d; border-radius: 10px;">
+                        Upload Product
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm" style="border-radius: 20px;">
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="ps-4 py-3">Product</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th class="text-end pe-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768514581.webp" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Iced Latte</div>
+                                                <small class="text-muted">ID: #5</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">Drinks</span></td>
+                                    <td class="fw-bold">$12.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/5" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/5" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768514651.jpg" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Iced Americano</div>
+                                                <small class="text-muted">ID: #6</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">Drinks</span></td>
+                                    <td class="fw-bold">$9.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/6" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/6" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768514673.jpg" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Tiramisu Latte</div>
+                                                <small class="text-muted">ID: #7</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">Drinks</span></td>
+                                    <td class="fw-bold">$15.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/7" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/7" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768514785.jpg" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Rose</div>
+                                                <small class="text-muted">ID: #8</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">Flowers</span></td>
+                                    <td class="fw-bold">$58.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/8" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/8" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768514849.jpg" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Tulips</div>
+                                                <small class="text-muted">ID: #9</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">Flowers</span></td>
+                                    <td class="fw-bold">$178.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/9" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/9" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768515103.webp" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Parrot Tulips</div>
+                                                <small class="text-muted">ID: #10</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">Flowers</span></td>
+                                    <td class="fw-bold">$330.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/10" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/10" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768556166.png" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Iced Mocha</div>
+                                                <small class="text-muted">ID: #11</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">coffee</span></td>
+                                    <td class="fw-bold">$14.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/11" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/11" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1768558459.webp" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">Latte</div>
+                                                <small class="text-muted">ID: #12</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">coffee</span></td>
+                                    <td class="fw-bold">$12.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/12" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/12" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                                <tr>
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <img src="admin_files/1780989102.webp" class="rounded shadow-sm" style="width: 50px; height: 50px; object-fit: cover;">
+                                            <div>
+                                                <div class="fw-bold">latte</div>
+                                                <small class="text-muted">ID: #13</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge bg-secondary text-capitalize">coffee</span></td>
+                                    <td class="fw-bold">$9.00</td>
+                                    <td>
+                                                                                    <span class="badge bg-success">Available</span>
+                                                                            </td>
+                                    <td class="text-end pe-4">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form action="http://127.0.0.1:8000/admin/products/toggle/13" method="POST">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-primary border-0">
+                                                    <i class="bi bi-arrow-repeat"></i>
+                                                </button>
+                                            </form>
+                                            
+                                            <form action="http://127.0.0.1:8000/admin/products/delete/13" method="POST" onsubmit="return confirm('Delete this product?')">
+                                                <input type="hidden" name="_token" value="16Yd3jiDbyjgH28Jjri02wK1p6PtI1aTlZRGSxOU" autocomplete="off">                                                <button class="btn btn-sm btn-outline-danger border-0">
+                                                    <i class="bi bi-trash3"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer class="py-5">
+        <div class="container text-center">
+            <img src="admin_files/bnb.png" alt="BNB Logo" style="height: 60px; margin-bottom: 15px; filter: grayscale(1); opacity: 0.2;">
+            <p class="fw-bold mb-1" style="color: var(--primary-green);">BREW &amp; BLOSSOM</p>
+            <p class="text-muted small mb-0">© 2026 Premium Drinks &amp; Floral Boutique. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="admin_files/bootstrap.bundle.min.js"></script>
+
+</body></html>
