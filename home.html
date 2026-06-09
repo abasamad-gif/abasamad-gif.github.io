@@ -1,223 +1,328 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brew &amp; Blossom | Premium Coffee &amp; Florals</title>
-    
-    <link href="home_files/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="home_files/bootstrap-icons.css">
-    
+
+    <link href="home_files/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="home_files/bootstrap-icons.css" />
+
     <style>
-        :root {
-            --primary-green: #1c3c2d;
-            --accent-yellow: #ffc107;
-            --white: #ffffff;
-        }
+      :root {
+        --primary-green: #1c3c2d;
+        --accent-yellow: #ffc107;
+        --white: #ffffff;
+      }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fcfcfc;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #fcfcfc;
+        margin: 0;
+        padding: 0;
+      }
 
-        /* Extra Large Dark Green Header */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--primary-green) !important;
-            padding-top: 1.2rem !important;
-            padding-bottom: 1.2rem !important;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+      /* Extra Large Dark Green Header */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: var(--primary-green) !important;
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-        /* Brand Container (Logo + Text) */
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-            margin-right: 0;
-            transition: opacity 0.3s ease;
-        }
+      /* Brand Container (Logo + Text) */
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 0;
+        transition: opacity 0.3s ease;
+      }
 
-        .navbar-brand:hover {
-            opacity: 0.9;
-        }
+      .navbar-brand:hover {
+        opacity: 0.9;
+      }
 
-        .brand-text {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--white);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1;
-        }
+      .brand-text {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        line-height: 1;
+      }
 
-        /* Extra Large Header Logo */
-        .header-logo {
-            height: 100px; /* Your requested size */
-            width: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
+      /* Extra Large Header Logo */
+      .header-logo {
+        height: 100px;
+        width: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      }
 
-        /* Navigation Icons */
-        .nav-link i {
-            font-size: 2rem !important;
-            color: var(--white) !important;
-            transition: all 0.2s ease;
-        }
+      /* Navigation Icons */
+      .nav-link i {
+        font-size: 2rem !important;
+        color: var(--white) !important;
+        transition: all 0.2s ease;
+      }
 
-        .nav-link:hover i {
-            color: var(--accent-yellow) !important;
-            transform: translateY(-3px);
-        }
+      .nav-link:hover i {
+        color: var(--accent-yellow) !important;
+        transform: translateY(-3px);
+      }
 
-        /* Cart Badge */
-        .badge-cart {
-            background-color: var(--accent-yellow);
-            color: #000;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border: 2px solid var(--primary-green);
-        }
+      /* Cart Badge */
+      .badge-cart {
+        background-color: var(--accent-yellow);
+        color: #000;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border: 2px solid var(--primary-green);
+      }
 
-        /* Main Content Spacing */
-        main {
-            min-height: 85vh;
-        }
+      /* Main Content Spacing */
+      main {
+        min-height: 85vh;
+      }
 
-        /* Footer */
-        footer {
-            background-color: var(--white);
-            color: var(--primary-green);
-            border-top: 1px solid #eee;
-        }
+      /* Footer */
+      footer {
+        background-color: var(--white);
+        color: var(--primary-green);
+        border-top: 1px solid #eee;
+      }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-green);
-            border-radius: 5px;
-        }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-green);
+        border-radius: 5px;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            
-            <a class="navbar-brand" href="http://127.0.0.1:8000/home">
-                <img src="home_files/bnb.png" alt="BNB Logo" class="header-logo">
-                <div class="brand-text d-none d-sm-block">
-                    Brew <span style="font-weight: 300; opacity: 0.9;">&amp;</span> Blossom
-                </div>
-            </a>
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img src="home_files/bnb.png" alt="BNB Logo" class="header-logo" />
+          <div class="brand-text d-none d-sm-block">
+            Brew
+            <span style="font-weight: 300; opacity: 0.9">&amp;</span> Blossom
+          </div>
+        </a>
 
-            <div class="ms-auto d-flex align-items-center">
-                <ul class="navbar-nav flex-row gap-4">
-                    <li class="nav-item">
-                        <a class="nav-link p-0" href="http://127.0.0.1:8000/shop" title="Go to Shop">
-                            <i class="bi bi-grid-3x3-gap"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-0 position-relative" href="http://127.0.0.1:8000/cart" title="View Cart">
-                            <i class="bi bi-bag-heart"></i>
-                                                    </a>
-                    </li>
-                                            <li class="nav-item">
-                            <a class="nav-link p-0" href="http://127.0.0.1:8000/logout" title="Logout">
-                                <i class="bi bi-person-x"></i>
-                            </a>
-                        </li>
-                                    </ul>
-            </div>
-
+        <div class="ms-auto d-flex align-items-center">
+          <ul class="navbar-nav flex-row gap-4">
+            <li class="nav-item">
+              <a class="nav-link p-0" href="products.html" title="Go to Shop">
+                <i class="bi bi-grid-3x3-gap"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-0 position-relative"
+                href="cart.html"
+                title="View Cart"
+              >
+                <i class="bi bi-bag-heart"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-0" href="index.html" title="Logout">
+                <i class="bi bi-person-x"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <main>
-        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" class=""></button>
-    </div>
-
-    <div class="carousel-inner">
-        <div class="carousel-item active" style="height: 70vh; min-height: 500px;">
-            <img src="home_files/1768514673.jpg" class="d-block w-100 h-100" style="object-fit: cover; filter: brightness(0.8);" alt="Brew">
-            <div class="carousel-caption d-flex flex-column justify-content-center h-100 text-start" style="left: 10%; right: 10%;">
-                <div class="p-4 p-md-5" style="background: rgba(28, 60, 45, 0.6); backdrop-filter: blur(8px); border-radius: 30px; max-width: 600px; border: 1px solid rgba(255,255,255,0.2);">
-                    <h1 class="display-3 fw-bold text-white mb-3">Wake Up to Perfection</h1>
-                    <p class="fs-4 text-white-50 mb-4">Artisan coffee beans roasted to bring out the deepest flavors of the morning.</p>
-                    <a href="http://127.0.0.1:8000/shop" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow">Shop Coffee</a>
-                </div>
-            </div>
+      <div
+        id="heroCarousel"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#heroCarousel"
+            data-bs-slide-to="1"
+            class=""
+          ></button>
         </div>
 
-        <div class="carousel-item" style="height: 70vh; min-height: 500px;">
-            <img src="home_files/1768515103.webp" class="d-block w-100 h-100" style="object-fit: cover; filter: brightness(0.8);" alt="Blossom">
-            <div class="carousel-caption d-flex flex-column justify-content-center h-100 text-end align-items-end" style="left: 10%; right: 10%;">
-                <div class="p-4 p-md-5" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border-radius: 30px; max-width: 600px; border: 1px solid rgba(255,255,255,0.3);">
-                    <h1 class="display-3 fw-bold text-white mb-3">Bloom with Grace</h1>
-                    <p class="fs-4 text-white-50 mb-4">Hand-crafted bouquets that speak the language of elegance and love.</p>
-                    <a href="http://127.0.0.1:8000/shop" class="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow">View Florals</a>
-                </div>
+        <div class="carousel-inner">
+          <div
+            class="carousel-item active"
+            style="height: 70vh; min-height: 500px"
+          >
+            <img
+              src="home_files/1768514673.jpg"
+              class="d-block w-100 h-100"
+              style="object-fit: cover; filter: brightness(0.8)"
+              alt="Brew"
+            />
+            <div
+              class="carousel-caption d-flex flex-column justify-content-center h-100 text-start"
+              style="left: 10%; right: 10%"
+            >
+              <div
+                class="p-4 p-md-5"
+                style="
+                  background: rgba(28, 60, 45, 0.6);
+                  backdrop-filter: blur(8px);
+                  border-radius: 30px;
+                  max-width: 600px;
+                  border: 1px solid rgba(255, 255, 255, 0.2);
+                "
+              >
+                <h1 class="display-3 fw-bold text-white mb-3">
+                  Wake Up to Perfection
+                </h1>
+                <p class="fs-4 text-white-50 mb-4">
+                  Artisan coffee beans roasted to bring out the deepest flavors
+                  of the morning.
+                </p>
+                <a
+                  href="products.html"
+                  class="btn btn-warning btn-lg rounded-pill px-5 fw-bold shadow"
+                  >Shop Coffee</a
+                >
+              </div>
             </div>
+          </div>
+
+          <div class="carousel-item" style="height: 70vh; min-height: 500px">
+            <img
+              src="home_files/1768515103.webp"
+              class="d-block w-100 h-100"
+              style="object-fit: cover; filter: brightness(0.8)"
+              alt="Blossom"
+            />
+            <div
+              class="carousel-caption d-flex flex-column justify-content-center h-100 text-end align-items-end"
+              style="left: 10%; right: 10%"
+            >
+              <div
+                class="p-4 p-md-5"
+                style="
+                  background: rgba(255, 255, 255, 0.1);
+                  backdrop-filter: blur(12px);
+                  border-radius: 30px;
+                  max-width: 600px;
+                  border: 1px solid rgba(255, 255, 255, 0.3);
+                "
+              >
+                <h1 class="display-3 fw-bold text-white mb-3">
+                  Bloom with Grace
+                </h1>
+                <p class="fs-4 text-white-50 mb-4">
+                  Hand-crafted bouquets that speak the language of elegance and
+                  love.
+                </p>
+                <a
+                  href="products.html"
+                  class="btn btn-light btn-lg rounded-pill px-5 fw-bold shadow"
+                  >View Florals</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
-</div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#heroCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
 
-<div class="container py-5 mt-5">
-    <div class="row g-4 text-center">
-        <div class="col-md-4">
+      <div class="container py-5 mt-5">
+        <div class="row g-4 text-center">
+          <div class="col-md-4">
             <div class="p-4 h-100">
-                <i class="bi bi-patch-check fs-1" style="color: #1c3c2d;"></i>
-                <h3 class="fw-bold mt-3">Premium Quality</h3>
-                <p class="text-muted">Only the highest grade beans and freshest seasonal blooms.</p>
+              <i class="bi bi-patch-check fs-1" style="color: #1c3c2d"></i>
+              <h3 class="fw-bold mt-3">Premium Quality</h3>
+              <p class="text-muted">
+                Only the highest grade beans and freshest seasonal blooms.
+              </p>
             </div>
-        </div>
-        <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
             <div class="p-4 h-100">
-                <i class="bi bi-person-check-fill fs-1" style="color: #1c3c2d;"></i>
-                <h3 class="fw-bold mt-3">Fast Service</h3>
-                <p class="text-muted">Fast and secure service to ensure you experience satisfaction.</p>
+              <i
+                class="bi bi-person-check-fill fs-1"
+                style="color: #1c3c2d"
+              ></i>
+              <h3 class="fw-bold mt-3">Fast Service</h3>
+              <p class="text-muted">
+                Fast and secure service to ensure you experience satisfaction.
+              </p>
             </div>
-        </div>
-        <div class="col-md-4">
+          </div>
+          <div class="col-md-4">
             <div class="p-4 h-100">
-                <i class="bi bi-stars fs-1" style="color: #1c3c2d;"></i>
-                <h3 class="fw-bold mt-3">Curated Service</h3>
-                <p class="text-muted">Every order is hand-picked and packed with meticulous care.</p>
+              <i class="bi bi-stars fs-1" style="color: #1c3c2d"></i>
+              <h3 class="fw-bold mt-3">Curated Service</h3>
+              <p class="text-muted">
+                Every order is hand-picked and packed with meticulous care.
+              </p>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
     </main>
 
     <footer class="py-5">
-        <div class="container text-center">
-            <img src="home_files/bnb.png" alt="BNB Logo" style="height: 60px; margin-bottom: 15px; filter: grayscale(1); opacity: 0.2;">
-            <p class="fw-bold mb-1" style="color: var(--primary-green);">BREW &amp; BLOSSOM</p>
-            <p class="text-muted small mb-0">© 2026 Premium Drinks &amp; Floral Boutique. All rights reserved.</p>
-        </div>
+      <div class="container text-center">
+        <img
+          src="home_files/bnb.png"
+          alt="BNB Logo"
+          style="
+            height: 60px;
+            margin-bottom: 15px;
+            filter: grayscale(1);
+            opacity: 0.2;
+          "
+        />
+        <p class="fw-bold mb-1" style="color: var(--primary-green)">
+          BREW &amp; BLOSSOM
+        </p>
+        <p class="text-muted small mb-0">
+          © 2026 Premium Drinks &amp; Floral Boutique. All rights reserved.
+        </p>
+      </div>
     </footer>
 
     <script src="home_files/bootstrap.bundle.min.js"></script>
-
-</body></html>
+  </body>
+</html>

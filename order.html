@@ -1,466 +1,366 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brew &amp; Blossom | Premium Coffee &amp; Florals</title>
-    
-    <link href="order_files/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="order_files/bootstrap-icons.css">
-    
+
+    <link href="order_files/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="order_files/bootstrap-icons.css" />
+
     <style>
-        :root {
-            --primary-green: #1c3c2d;
-            --accent-yellow: #ffc107;
-            --white: #ffffff;
-        }
+      :root {
+        --primary-green: #1c3c2d;
+        --accent-yellow: #ffc107;
+        --white: #ffffff;
+      }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #fcfcfc;
-            margin: 0;
-            padding: 0;
-        }
+      body {
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #fcfcfc;
+        margin: 0;
+        padding: 0;
+      }
 
-        /* Extra Large Dark Green Header */
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--primary-green) !important;
-            padding-top: 1.2rem !important;
-            padding-bottom: 1.2rem !important;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+      /* Extra Large Dark Green Header */
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background-color: var(--primary-green) !important;
+        padding-top: 1.2rem !important;
+        padding-bottom: 1.2rem !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
 
-        /* Brand Container (Logo + Text) */
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-            margin-right: 0;
-            transition: opacity 0.3s ease;
-        }
+      /* Brand Container (Logo + Text) */
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 0;
+        transition: opacity 0.3s ease;
+      }
 
-        .navbar-brand:hover {
-            opacity: 0.9;
-        }
+      .navbar-brand:hover {
+        opacity: 0.9;
+      }
 
-        .brand-text {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--white);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            line-height: 1;
-        }
+      .brand-text {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        line-height: 1;
+      }
 
-        /* Extra Large Header Logo */
-        .header-logo {
-            height: 100px; /* Your requested size */
-            width: auto;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
+      /* Extra Large Header Logo */
+      .header-logo {
+        height: 100px;
+        width: auto;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+      }
 
-        /* Navigation Icons */
-        .nav-link i {
-            font-size: 2rem !important;
-            color: var(--white) !important;
-            transition: all 0.2s ease;
-        }
+      /* Navigation Icons */
+      .nav-link i {
+        font-size: 2rem !important;
+        color: var(--white) !important;
+        transition: all 0.2s ease;
+      }
 
-        .nav-link:hover i {
-            color: var(--accent-yellow) !important;
-            transform: translateY(-3px);
-        }
+      .nav-link:hover i {
+        color: var(--accent-yellow) !important;
+        transform: translateY(-3px);
+      }
 
-        /* Cart Badge */
-        .badge-cart {
-            background-color: var(--accent-yellow);
-            color: #000;
-            font-size: 0.8rem;
-            font-weight: bold;
-            border: 2px solid var(--primary-green);
-        }
+      /* Main Content Spacing */
+      main {
+        min-height: 85vh;
+      }
 
-        /* Main Content Spacing */
-        main {
-            min-height: 85vh;
-        }
+      /* Footer */
+      footer {
+        background-color: var(--white);
+        color: var(--primary-green);
+        border-top: 1px solid #eee;
+      }
 
-        /* Footer */
-        footer {
-            background-color: var(--white);
-            color: var(--primary-green);
-            border-top: 1px solid #eee;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary-green);
-            border-radius: 5px;
-        }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-green);
+        border-radius: 5px;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            
-            <a class="navbar-brand" href="http://127.0.0.1:8000/home">
-                <img src="order_files/bnb.png" alt="BNB Logo" class="header-logo">
-                <div class="brand-text d-none d-sm-block">
-                    Brew <span style="font-weight: 300; opacity: 0.9;">&amp;</span> Blossom
-                </div>
-            </a>
+      <div class="container">
+        <a class="navbar-brand" href="home.html">
+          <img src="order_files/bnb.png" alt="BNB Logo" class="header-logo" />
+          <div class="brand-text d-none d-sm-block">
+            Brew
+            <span style="font-weight: 300; opacity: 0.9">&amp;</span> Blossom
+          </div>
+        </a>
 
-            <div class="ms-auto d-flex align-items-center">
-                <ul class="navbar-nav flex-row gap-4">
-                    <li class="nav-item">
-                        <a class="nav-link p-0" href="http://127.0.0.1:8000/shop" title="Go to Shop">
-                            <i class="bi bi-grid-3x3-gap"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link p-0 position-relative" href="http://127.0.0.1:8000/cart" title="View Cart">
-                            <i class="bi bi-bag-heart"></i>
-                                                    </a>
-                    </li>
-                                            <li class="nav-item">
-                            <a class="nav-link p-0" href="http://127.0.0.1:8000/logout" title="Logout">
-                                <i class="bi bi-person-x"></i>
-                            </a>
-                        </li>
-                                    </ul>
-            </div>
-
+        <div class="ms-auto d-flex align-items-center">
+          <ul class="navbar-nav flex-row gap-4">
+            <li class="nav-item">
+              <a class="nav-link p-0" href="shop.html" title="Go to Shop">
+                <i class="bi bi-grid-3x3-gap"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link p-0 position-relative"
+                href="cart.html"
+                title="View Cart"
+              >
+                <i class="bi bi-bag-heart"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link p-0" href="index.html" title="Logout">
+                <i class="bi bi-person-x"></i>
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <main>
-        <div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <div>
+      <div class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <div>
             <h2 class="fw-bold text-danger mb-0">Customer Purchase History</h2>
-            <p class="text-muted">Tracking all successful orders from Brew &amp; Blossom.</p>
+            <p class="text-muted">
+              Tracking all successful orders from Brew &amp; Blossom.
+            </p>
+          </div>
+          <a
+            href="adminhome.html"
+            class="btn btn-outline-dark rounded-pill px-4"
+          >
+            &larr; Back to Products
+          </a>
         </div>
-        <a href="http://127.0.0.1:8000/adminhome" class="btn btn-outline-dark rounded-pill px-4">
-            ← Back to Products
-        </a>
-    </div>
 
-    <div class="card border-0 shadow-sm p-4" style="border-radius: 20px;">
-        <div class="table-responsive">
+        <div class="card border-0 shadow-sm p-4" style="border-radius: 20px">
+          <div class="table-responsive">
             <table class="table align-middle table-hover">
-                <thead class="table-light">
-                    <tr>
-                        <th class="ps-3">Order ID</th>
-                        <th>Customer Details</th>
-                        <th>Products Bought</th>
-                        <th>Total Amount</th>
-                        <th>Date &amp; Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                                            <tr>
-                            <td class="ps-3 fw-bold">#9</td>
-                            <td>
-                                <div class="fw-bold">abas ahmad</div>
-                                <div class="small text-muted">abasahmad@gmail.com</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                2x
-                                            </span> 
-                                            Iced Americano
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 18.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    09 Jun 2026<br>
-                                    07:09 AM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#8</td>
-                            <td>
-                                <div class="fw-bold">abas ahmad</div>
-                                <div class="small text-muted">abasahmad@gmail.com</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Tiramisu Latte
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Iced Mocha
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Tulips
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 207.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    09 Jun 2026<br>
-                                    06:54 AM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#7</td>
-                            <td>
-                                <div class="fw-bold">abas ahmad</div>
-                                <div class="small text-muted">abasahmad@gmail.com</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Rose
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Tulips
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 236.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    08 Jun 2026<br>
-                                    05:48 PM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#6</td>
-                            <td>
-                                <div class="fw-bold">ahmad</div>
-                                <div class="small text-muted">ahmad@gmail.com</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Iced Latte
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 12.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    16 Jan 2026<br>
-                                    10:13 AM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#5</td>
-                            <td>
-                                <div class="fw-bold">ayol</div>
-                                <div class="small text-muted">4@4</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Rose
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Parrot Tulips
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Tiramisu Latte
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 403.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    16 Jan 2026<br>
-                                    12:03 AM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#4</td>
-                            <td>
-                                <div class="fw-bold">abas</div>
-                                <div class="small text-muted">2@2</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Parrot Tulips
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 330.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    15 Jan 2026<br>
-                                    11:15 PM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#3</td>
-                            <td>
-                                <div class="fw-bold">mancha</div>
-                                <div class="small text-muted">3@3</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Parrot Tulips
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 330.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    15 Jan 2026<br>
-                                    10:37 PM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#2</td>
-                            <td>
-                                <div class="fw-bold">mancha</div>
-                                <div class="small text-muted">3@3</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Tiramisu Latte
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Iced Americano
-                                        </li>
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Iced Latte
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 36.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    15 Jan 2026<br>
-                                    09:42 PM
-                                </div>
-                            </td>
-                        </tr>
-                                            <tr>
-                            <td class="ps-3 fw-bold">#1</td>
-                            <td>
-                                <div class="fw-bold">mancha</div>
-                                <div class="small text-muted">3@3</div>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0">
-                                                                            <li class="small">
-                                            <span class="badge bg-danger-subtle text-danger rounded-pill me-1">
-                                                1x
-                                            </span> 
-                                            Iced Latte
-                                        </li>
-                                                                    </ul>
-                            </td>
-                            <td>
-                                <span class="fw-bold text-dark">RM 12.00</span>
-                            </td>
-                            <td>
-                                <div class="small text-muted">
-                                    15 Jan 2026<br>
-                                    09:41 PM
-                                </div>
-                            </td>
-                        </tr>
-                                    </tbody>
+              <thead class="table-light">
+                <tr>
+                  <th class="ps-3">Order ID</th>
+                  <th>Customer Details</th>
+                  <th>Products Bought</th>
+                  <th>Total Amount</th>
+                  <th>Date &amp; Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-3 fw-bold">#9</td>
+                  <td>
+                    <div class="fw-bold">abas ahmad</div>
+                    <div class="small text-muted">abasahmad@gmail.com</div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0">
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >2x</span
+                        >
+                        Iced Americano
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <span class="fw-bold text-dark">RM 18.00</span>
+                  </td>
+                  <td>
+                    <div class="small text-muted">
+                      09 Jun 2026<br />07:09 AM
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-3 fw-bold">#8</td>
+                  <td>
+                    <div class="fw-bold">abas ahmad</div>
+                    <div class="small text-muted">abasahmad@gmail.com</div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0">
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Tiramisu Latte
+                      </li>
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Iced Mocha
+                      </li>
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Tulips
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <span class="fw-bold text-dark">RM 207.00</span>
+                  </td>
+                  <td>
+                    <div class="small text-muted">
+                      09 Jun 2026<br />06:54 AM
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-3 fw-bold">#7</td>
+                  <td>
+                    <div class="fw-bold">abas ahmad</div>
+                    <div class="small text-muted">abasahmad@gmail.com</div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0">
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Rose
+                      </li>
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Tulips
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <span class="fw-bold text-dark">RM 236.00</span>
+                  </td>
+                  <td>
+                    <div class="small text-muted">
+                      08 Jun 2026<br />05:48 PM
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-3 fw-bold">#6</td>
+                  <td>
+                    <div class="fw-bold">ahmad</div>
+                    <div class="small text-muted">ahmad@gmail.com</div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0">
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Iced Latte
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <span class="fw-bold text-dark">RM 12.00</span>
+                  </td>
+                  <td>
+                    <div class="small text-muted">
+                      16 Jan 2026<br />10:13 AM
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-3 fw-bold">#5</td>
+                  <td>
+                    <div class="fw-bold">ayol</div>
+                    <div class="small text-muted">4@4</div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0">
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Rose
+                      </li>
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Parrot Tulips
+                      </li>
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Tiramisu Latte
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <span class="fw-bold text-dark">RM 403.00</span>
+                  </td>
+                  <td>
+                    <div class="small text-muted">
+                      16 Jan 2026<br />12:03 AM
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="ps-3 fw-bold">#4</td>
+                  <td>
+                    <div class="fw-bold">abas</div>
+                    <div class="small text-muted">2@2</div>
+                  </td>
+                  <td>
+                    <ul class="list-unstyled mb-0">
+                      <li class="small">
+                        <span
+                          class="badge bg-danger-subtle text-danger rounded-pill me-1"
+                          >1x</span
+                        >
+                        Parrot Tulips
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
             </table>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
     </main>
-
-    <footer class="py-5">
-        <div class="container text-center">
-            <img src="order_files/bnb.png" alt="BNB Logo" style="height: 60px; margin-bottom: 15px; filter: grayscale(1); opacity: 0.2;">
-            <p class="fw-bold mb-1" style="color: var(--primary-green);">BREW &amp; BLOSSOM</p>
-            <p class="text-muted small mb-0">© 2026 Premium Drinks &amp; Floral Boutique. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="order_files/bootstrap.bundle.min.js"></script>
-
-</body></html>
+  </body>
+</html>
