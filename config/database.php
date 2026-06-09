@@ -85,7 +85,7 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => env('DB_URL', postgresql:'//bnb_8a6p_user:R6I4lvtT7gYtw93C6tfD1NTvCOA7F2Qu@dpg-d8jhd80jo6nc73ecdbu0-a/bnb_8a6p'),
+            'url' => env('DB_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'laravel'),
