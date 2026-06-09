@@ -40,4 +40,4 @@ RUN rm -f /etc/nginx/sites-enabled/default \
 
 # Expose port and start openserver
 EXPOSE 80
-CMD php /var/www/artisan migrate --force && service nginx start && php-fpm
+CMD sh -c "php artisan config:clear && php artisan migrate --force && nginx -g 'daemon off;'"
